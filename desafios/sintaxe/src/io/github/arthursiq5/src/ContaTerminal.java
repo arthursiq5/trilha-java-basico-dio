@@ -53,6 +53,21 @@ public class ContaTerminal {
                 + "e seu saldo " + this.saldo + " já está disponível para saque";
     }
     
+    public String toJson () {
+        String linhaJson = String.format(
+                "{"
+                        + "\"nomeConta\":\"%s\","
+                        + "\"agencia\":%d,"
+                        + "\"conta\":\"%s\","
+                        + "\"saldo\":%f" +
+                "}",
+                this.nomeConta,
+                this.agencia,
+                this.conta,
+                this.saldo);
+        return linhaJson;
+    }
+    
     public static void main(String[] args) {
         ContaTerminal ct = new ContaTerminal("Teste Teste", 1, "0001-1");
         System.out.println(ct.criarContaMensagem());
